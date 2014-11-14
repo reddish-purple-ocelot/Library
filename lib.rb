@@ -79,18 +79,14 @@ class Library
     while max_id.zero? 
 
     end
-  p <<@mass_orders[0].book
-  p <<@mass_orders[1].book
-  p <<@mass_orders[2].book
+   @mass_orders.each{|x| p<<x.book}
   p p
   
   end
 
   def men_who_likes_to_read_the_books
     p=[]
-  p <<@mass_orders[0].reader
-  p <<@mass_orders[1].reader
-  p <<@mass_orders[2].reader
+  @mass_orders.each{|x| p<<x.reader}
   p p
   end  
   def three_the_most_popular_books
