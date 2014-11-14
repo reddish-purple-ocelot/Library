@@ -1,0 +1,7 @@
+[#<Book:0x9f2eaa0 @title="Dorian Grey", @author="Oscar Wilde">, #<Book:0x9f2ea14 @title="Moby Dik", @author="Herman Melville">, #<Book:0x9f2e988 @title="Valentina", @author="Chorch Sand">]
+[#<Author:0x9f2e794 @name="Oscar Wilde", @biography="16 October 1854; 30 November 1900;">, #<Author:0x9f2e708 @name="Herman Melville", @biography="August 1, 1819;September 28, 1891;">]
+[#<Reader:0x9f2e564 @name="name", @email="email", @city="city", @street="street", @house="house">, #<Reader:0x9f2e4b0 @name="Valya", @email="val.slyun@gmail.com", @city="Dnepr", @street="Stal", @house="7">]
+[#<Order:0x9f2e2bc @book="Valentina", @reader="reader", @date="date">, #<Order:0x9f2e230 @book="Valentina", @reader="Valya", @date="7.10.2012">, #<Order:0x9f2e1a4 @book="Dorian Grey", @reader="Valya", @date="3.09.2013">]
+"Valentina"
+"Valya"
+["Valentina", "Valentina", "Dorian Grey"]

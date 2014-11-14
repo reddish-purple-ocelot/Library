@@ -8,10 +8,13 @@ class Library
   def library_get
     #books
     @mass_book=[]
-    f=File.open("books.val")
+    file = "books.val"
+   # format=Book.new(title, book)
+    mass=@mass_book
+    f=File.open(file)
       f.each do |line| 
         array_mass= line.split(" | ")
-        @mass_book << Book.new(array_mass[0],array_mass[1].strip!)
+        mass << Book.new(array_mass[0],array_mass[1].strip!)
       end
     p @mass_book
 
@@ -71,27 +74,48 @@ class Library
       @orders.each{|bk| fl.puts(bk)}
     end
   end
-  #Objects
+  #Functions
 
   def the_most_popular_book
     p=[]
     @mass_orders.each{|x| p<<x.book}
-    max_id=@mass_orders.size
-    while max_id.zero? 
-
+   # p p   
+   def include_book(item)
+      res = 0
+        @mass_orders.each do |x|
+          if(item<=>x.book)==0
+           then res+=1 
+          end
+        end
+      res
     end
-  p p
-  
+    p=p.each{|item| include_book(item)}
+    p p[0]
   end
 
   def men_who_likes_to_read_the_books
     p=[]
-    @mass_orders.each{|x| p<<x.reader }
-    p p
+    @mass_orders.each{|x| p<< x.reader} #reader
+    #p p
+    def include_reader(item)
+      res = 0
+        @mass_orders.each do |x|
+          if(item<=>x.reader)==0
+           then res+=1 
+          end
+        end
+      #puts res
+    end
+   
+   p=p.sort.each{|item| include_reader(item)}
+   #puts p
+   p p[0]
+
   end  
   def three_the_most_popular_books
-
-
+    p=[]
+    @mass_orders.each{|x| p<<x.book}
+    p p.each{|item| include_book(item)}
   end
 end
 
@@ -100,3 +124,4 @@ My_library.library_save
 My_library.library_get
 My_library.the_most_popular_book
 My_library.men_who_likes_to_read_the_books
+My_library.three_the_most_popular_books
