@@ -3,9 +3,9 @@ require_relative "author.rb"
 require_relative "reader.rb"
 require_relative "order.rb"
 class Library
-  attr_accessor :books, :mass_book, :authors, :readers
+  attr_accessor :books, :mass_book, :authors, :readers, :orders
 
-  def library_get()
+  def library_get
     #books
     @mass_book=[]
     File.open("books.val", "r") do |fl|
@@ -38,12 +38,12 @@ class Library
     File.open("orders.val", "r") do |fl|
       while line=fl.gets 
         array_mass=line.split(", ")
-        @mass_orders << Order.new(array_mass[0],array_mass[1],array_mass[2])
+        @mass_orders << Order.new(array_mass[0],array_mass[1],array_mass[2].strip!)
       end
     end
     p @mass_orders
-
   end
+
   def library_save
     #books
     @books=["Dorian Grey | Oscar Wilde", "Moby Dik | Herman Melville", "Valentina | Chorch Sand"]
@@ -66,15 +66,41 @@ class Library
       @readers.each{|bk| fl.puts(bk)}
     end
     #orders
-    @orders=["book, reader, date","Valentina,Valya , 7.10.2012"]
+    @orders=["Valentina, reader, date","Valentina, Valya, 7.10.2012","Dorian Grey, Valya, 3.09.2013"]
     File.open("orders.val", "w") do |fl|
       @orders.each{|bk| fl.puts(bk)}
     end
-
   end
   #Objects
+
+  def the_most_popular_book
+    p=[]
+    max_id=@mass_orders.size
+    while max_id.zero? 
+
+    end
+  p <<@mass_orders[0].book
+  p <<@mass_orders[1].book
+  p <<@mass_orders[2].book
+  p p
+  
+  end
+
+  def men_who_likes_to_read_the_books
+    p=[]
+  p <<@mass_orders[0].reader
+  p <<@mass_orders[1].reader
+  p <<@mass_orders[2].reader
+  p p
+  end  
+  def three_the_most_popular_books
+
+
+  end
 end
 
 My_library = Library.new
 My_library.library_save
 My_library.library_get
+My_library.the_most_popular_book
+My_library.men_who_likes_to_read_the_books
